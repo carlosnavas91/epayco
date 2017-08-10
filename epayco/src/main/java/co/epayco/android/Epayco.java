@@ -36,6 +36,7 @@ public class Epayco {
 
     private static final String BASE_URL = "https://api.secure.payco.co";
     private static final String BASE_URL_SECURE = "https://secure.payco.co";
+    private static final int TIMEOUT = 40000;
 
     private String apiKey;
     private String privateKey;
@@ -419,7 +420,7 @@ public class Epayco {
      * @param callback response request api
      */
     public static void get(String url, @NonNull final EpaycoCallback callback) {
-        client.setTimeout(40000);
+        client.setTimeout(TIMEOUT);
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -446,7 +447,7 @@ public class Epayco {
      * @param callback response request api
      */
     public static void post(String url, @NonNull RequestParams data, String options, @NonNull final EpaycoCallback callback) {
-        client.setTimeout(40000);
+        client.setTimeout(TIMEOUT);
         client.setBasicAuth(options, "");
         client.addHeader("type", "sdk");
         client.post(url, data, new AsyncHttpResponseHandler() {
