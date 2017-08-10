@@ -419,6 +419,7 @@ public class Epayco {
      * @param callback response request api
      */
     public static void get(String url, @NonNull final EpaycoCallback callback) {
+        client.setTimeout(40000);
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -445,6 +446,7 @@ public class Epayco {
      * @param callback response request api
      */
     public static void post(String url, @NonNull RequestParams data, String options, @NonNull final EpaycoCallback callback) {
+        client.setTimeout(40000);
         client.setBasicAuth(options, "");
         client.addHeader("type", "sdk");
         client.post(url, data, new AsyncHttpResponseHandler() {
