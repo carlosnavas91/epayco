@@ -33,6 +33,7 @@ import static co.epayco.android.util.EpaycoNetworkUtils.hashMapFromCharge;
 public class Epayco {
 
     private static AsyncHttpClient client = new AsyncHttpClient();
+    client.setTimeout(38000);
 
     private static final String BASE_URL = "https://api.secure.payco.co";
     private static final String BASE_URL_SECURE = "https://secure.payco.co";
